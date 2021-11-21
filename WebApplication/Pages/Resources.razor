@@ -1,15 +1,54 @@
-﻿@page "/Resources"
+﻿@page "/"
+@inherits ResourcesBase
 <h3>Resources</h3>
 
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th></th>
-    </tr>
-    </thead>
-</table>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Resources == null)
+        {
+            <div class="spinner"></div>
+        @*<p>
+            <em>Loading..</em>
+        </p>*@
+        }
+        else if (!Resources.Any())
+        {
+            <p>
+                <em>No resource items exist. Please add some.</em>
+            </p>
+        }
+        else
+        {
+            @foreach (var resource in Resources)
+            {
+                <tr>
+                    <td>@resource.Id</td>
+                    <td>@resource.Name</td>
+                    <td>
+                        @* <button class="btn btn-primary" @onclick="@(() => OpenBookDialog(resource))"> *@
+                        @*     Book resource *@
+                        @* </button> *@
+                    </td>
+                    <td>
+                        @* <button class="btn btn-outline-primary" @onclick="(() => RemoveResource(resource.Id))"> *@
+                        @*     Delete *@
+                        @* </button> *@
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+    
+</div>
 @code {
     
 }

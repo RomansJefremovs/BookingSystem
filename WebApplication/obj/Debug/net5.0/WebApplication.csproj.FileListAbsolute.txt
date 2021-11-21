@@ -18,10 +18,6 @@ C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApp
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApplication.RazorComponent.input.cache
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Shared\NavMenu.razor.g.cs
@@ -31,10 +27,6 @@ C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApp
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApplication.TagHelpers.output.cache
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApplication.RazorCoreGenerate.cache
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\App.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Pages\FetchData.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
-C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Shared\NavMenu.razor.g.cs
@@ -58,3 +50,5 @@ C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApp
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\WebApplication.csproj.CopyComplete
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\RazorDeclaration\Pages\Resources.razor.g.cs
 C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\obj\Debug\net5.0\Razor\Pages\Resources.razor.g.cs
+C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\bin\Debug\net5.0\Models.dll
+C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\bin\Debug\net5.0\Models.pdb
