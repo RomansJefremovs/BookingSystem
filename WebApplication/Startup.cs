@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
- 
+using WebApplication.Services;
+
 namespace WebApplication
 {
     public class Startup
@@ -27,7 +28,14 @@ namespace WebApplication
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-             
+            services.AddHttpClient<IResourcesService, ResourcesServiceImp>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001/ ");
+            });
+            services.AddHttpClient<IBookingService, BookingServiceImp>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001/ ");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

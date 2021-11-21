@@ -82,15 +82,8 @@ using WebApplication.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\bruger\RiderProjects\Project_P2L\WebApplication\Pages\Resources.razor"
-using WebApplication.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Resources : ResourcesBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/NewResource")]
+    public partial class NewResource : NewResourceBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Components
+@inherits Booking_Resource_Popup_Base
+
+<h3>Booking_Resource_Popup</h3>
+<div class="modal fade show" id="myModal" style="display:block; background-color: rgba(10,10,10,.8)" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Booking Resource @Resource.Id</h4>
+                <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                <EditForm Model="@newBooking">
+                    <DataAnnotationsValidator/>
+                    <div class="form-group">
+                        <label for="datefrom">Date from: </label>
+                        <InputDate id="datefrom" class="form-control valid" @bind-Value="newBooking.DateFrom"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateto">Date to: </label>
+                        <InputDate id="dateto" class="form-control valid" @bind-Value="newBooking.DateTo"/>
+                    </div>
+                    <div class="form-group">
+                        <p>Quantity: </p>
+                        <InputNumber class="form-control" @bind-Value="newBooking.BookedQuantity"/>
+                        <ValidationMessage For="@(() => newBooking.BookedQuantity)"></ValidationMessage>
+                    </div>
+                </EditForm>
+                <div>
+                    @switch (TextType)
+                    {
+                        case StatusOfText.Success:
+                            <div style="color: green">@Text</div>
+                            break;
+                        case StatusOfText.Error:
+                            <div style="color: red">@Text</div>
+                            break;
+                    }
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="@ModalBook">Book</button>
+            </div>
+        </div>
+    </div>
+</div>

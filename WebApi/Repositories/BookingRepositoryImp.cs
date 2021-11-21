@@ -47,14 +47,17 @@ namespace WebApi.Repositories
             return null;
         }
 
-        public async void DeleteBooking(int bookingId)
+        public async Task<Booking> DeleteBooking(int bookingId)
         {
             var result = await myDbContext.Bookings.FirstOrDefaultAsync(b=>b.Id == bookingId);
             if (result != null)
             {
                  myDbContext.Bookings.Remove(result);
                  await myDbContext.SaveChangesAsync();
+                 return result;
             }
+
+            return null;
         }
     }
 }

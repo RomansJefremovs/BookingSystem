@@ -10,6 +10,6 @@ namespace WebApi.Repositories
         Task<Booking> GetBooking(int bookingId);
         Task<Booking> AddBooking(Booking booking);
         Task<Booking> UpdateBooking(Booking booking);
-        void DeleteBooking(int bookingId);
+        Task<Booking> DeleteBooking(int bookingId);
     }
 }

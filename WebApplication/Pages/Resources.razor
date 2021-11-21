@@ -1,8 +1,11 @@
 ﻿@page "/"
 @inherits ResourcesBase
+@using WebApplication.Components;
+
 <h3>Resources</h3>
 
 <div>
+    <button class="btn btn-primary" @onclick="() => OpenNewResourcePage()">NewResource</button>
     <table>
         <thead>
         <tr>
@@ -15,9 +18,6 @@
         @if (Resources == null)
         {
             <div class="spinner"></div>
-        @*<p>
-            <em>Loading..</em>
-        </p>*@
         }
         else if (!Resources.Any())
         {
@@ -33,22 +33,28 @@
                     <td>@resource.Id</td>
                     <td>@resource.Name</td>
                     <td>
-                        @* <button class="btn btn-primary" @onclick="@(() => OpenBookDialog(resource))"> *@
-                        @*     Book resource *@
-                        @* </button> *@
+                        
+                        <button class="btn btn-primary" @onclick="(() => OpenBookDialog(resource))">
+                            Book resource
+                        </button>
                     </td>
                     <td>
-                        @* <button class="btn btn-outline-primary" @onclick="(() => RemoveResource(resource.Id))"> *@
-                        @*     Delete *@
-                        @* </button> *@
+                        <button class="btn btn-outline-primary" @onclick="(() => RemoveResource(resource.Id))">
+                            Delete
+                        </button>
                     </td>
                 </tr>
             }
         }
         </tbody>
     </table>
-    
 </div>
-@code {
-    
+
+@if (NewResourcePageOpen)
+{
+    <NewResource/>
+}
+@if (BookDialogOpen)
+{
+    <Booking_Resource_Popup Resource= "@_resourceToBook" OnClose="@OnBookDialogClose"></Booking_Resource_Popup>
 }

@@ -9,21 +9,21 @@ namespace WebApi.Controllers
 {
     [Route("api[controller]")]
     [ApiController]
-    public class ResourceController: ControllerBase
+    public class BookingController: ControllerBase
     {
-        private readonly IResourceRepository resourceRepository;
-        public ResourceController(IResourceRepository resourceRepository)
+        private readonly IBookingRepository bookingRepository;
+        public BookingController(IBookingRepository bookingRepository)
         {
-            this.resourceRepository = resourceRepository;
+            this.bookingRepository = bookingRepository;
 
         }
         
         [HttpGet]
-        public async Task<ActionResult> GetResources()
+        public async Task<ActionResult> GetBookings()
         {
             try
             {
-                return Ok(await resourceRepository.GetResources());
+                return Ok(await bookingRepository.GetBookings());
             }
             catch (Exception e)
             {
@@ -33,11 +33,11 @@ namespace WebApi.Controllers
         }
         
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Resource>> GetResource(int id)
+        public async Task<ActionResult<Booking>> GetBooking(int id)
         {
             try
             {
-                var result = await resourceRepository.GetResource(id);
+                var result = await bookingRepository.GetBooking(id);
                 if (result == null )
                 {
                     return NotFound();
@@ -52,17 +52,17 @@ namespace WebApi.Controllers
             }
         }
         [HttpPost]
-        public async Task<ActionResult<Resource>> CreateResource(Resource resource)
+        public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
         {
             try
             {
-                if (resource == null)
+                if (booking == null)
                 {
                     return BadRequest();
                 }
-                var createdResource = await resourceRepository.AddResource(resource);
+                var createdBooking = await bookingRepository.AddBooking(booking);
 
-                return CreatedAtAction(nameof(GetResource),new {id = createdResource.Id},createdResource );
+                return CreatedAtAction(nameof(GetBooking),new {id = createdBooking.Id},createdBooking );
             }
             catch (Exception e)
             {
@@ -72,21 +72,21 @@ namespace WebApi.Controllers
             
         }
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<Resource>> UpdateResource(int id, Resource resource)
+        public async Task<ActionResult<Booking>> UpdateBooking(int id, Booking booking)
         {
             try
             {
-                if (id != resource.Id)
+                if (id != booking.Id)
                 {
                     return BadRequest("Resource ID mismatch");
                 }
-                var res = await resourceRepository.GetResource(id);
+                var res = await bookingRepository.GetBooking(id);
                 if (res == null)
                 {
                     return NotFound($"Resource with ID = {id} not found");
                 }
 
-                return await resourceRepository.UpdateResource(resource);
+                return await bookingRepository.UpdateBooking(booking);
             }
             catch (Exception e)
             {
@@ -95,17 +95,17 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult<Resource>> DeleteResource(int id)
+        public async Task<ActionResult<Booking>> DeleteBooking(int id)
         {
             try
             {
-                var res = await resourceRepository.GetResource(id);
+                var res = await bookingRepository.GetBooking(id);
                 if (res == null)
                 {
                     return NotFound($"Resource with ID = {id} not found");
                 }
 
-               return await resourceRepository.DeleteResource(id);
+               return await bookingRepository.DeleteBooking(id);
             }
             catch (Exception e)
             {

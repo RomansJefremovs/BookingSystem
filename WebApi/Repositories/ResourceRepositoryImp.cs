@@ -47,14 +47,16 @@ namespace WebApi.Repositories
             return null;
         }
 
-        public async void DeleteResource(int resourceId)
+        public async   Task<Resource> DeleteResource(int resourceId)
         {
             var result = await myDbContext.Resources.FirstOrDefaultAsync(r => r.Id == resourceId );
             if (result != null)
             {
                 myDbContext.Resources.Remove(result);
                 await myDbContext.SaveChangesAsync();
-            } 
+                return result;
+            }
+            return null;
         }
     }
 }

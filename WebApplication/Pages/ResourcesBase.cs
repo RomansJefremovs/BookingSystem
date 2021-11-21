@@ -1,40 +1,52 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Models;
+using WebApplication.Services;
 
 namespace WebApplication.Pages
 {  
     public class ResourcesBase: ComponentBase
     {
-        public IEnumerable<Resource> Resources  { get; set; }
+        [Inject]
+        public IResourcesService ResourcesService { get; set; }
+        public List<Resource> Resources { get; set; }
+        public bool NewResourcePageOpen { get; set; }
+        public bool BookDialogOpen { get; set; }
+        protected Resource _resourceToBook;
         protected override async Task OnInitializedAsync()
         {
-            await Task.Run(LoadResources);
+            Resources = (await ResourcesService.GetResources()).ToList(); 
+        } 
+        protected async Task RemoveResource(int Id)
+        {
+            Resource toRemove = Resources.First(r => r.Id == Id);
+            await ResourcesService.DeleteResource(Id);
+            Resources.Remove(toRemove);
+        }
+        protected void OnBookDialogClose(bool accepted)
+        {
+            if (accepted)
+            {
+                _resourceToBook = null;
+            }
+            BookDialogOpen = false;
+            StateHasChanged();
         }
 
-        private void LoadResources()
+        protected void OpenBookDialog(Resource resource)
         {
-           
-            Resource r1 = new Resource
-            {
-                Id = 1,
-                Name = "gg",
-                Quantity = 2
-            };
-            Resource r2 = new Resource
-            {
-                Id = 2,
-                Name = "gg",
-                Quantity = 1
-            };
-            Resource r3 = new Resource
-            {
-                Id = 3,
-                Name = "gg",
-                Quantity = 2
-            };
-            Resources = new List<Resource> {r1,r2,r3 };
+            _resourceToBook = resource;
+            BookDialogOpen = true;
+            StateHasChanged();
         }
+        
+        protected void OpenNewResourcePage()
+        {
+            NewResourcePageOpen = true;
+            StateHasChanged();
+        }
+
     }
 }

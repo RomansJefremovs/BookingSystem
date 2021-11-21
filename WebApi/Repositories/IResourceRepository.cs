@@ -10,6 +10,6 @@ namespace WebApi.Repositories
         Task<Resource> GetResource(int resourceId);
         Task<Resource> AddResource(Resource resource);
         Task<Resource> UpdateResource(Resource resource);
-        void DeleteResource(int resourceId);
+        Task<Resource> DeleteResource(int resourceId);
     }
 }

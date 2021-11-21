@@ -7,6 +7,6 @@ namespace Models
     {
         [Required] public int Id { get; set; }
         [Required] public String Name { get; set; }
-        public int Quantity { get; set; }
+        [Required]public int Quantity { get; set; }
     }
-}
+} 
